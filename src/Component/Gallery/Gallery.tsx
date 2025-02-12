@@ -11,7 +11,6 @@ import {
 import { FaRegFolder } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 import { SlTrash } from "react-icons/sl";
-import { v4 as uuidV4 } from "uuid";
 import { IoImageOutline } from "react-icons/io5";
 import { GalleryImage } from "./GalleryImage";
 import { Favourite } from "../Favourite/Favourite";
@@ -61,7 +60,7 @@ export const Gallery = () => {
   }, [gallery, folder, images]);
 
   const addFolder = () => {
-    const newFolder = { id: uuidV4(), name: "New Folder" };
+    const newFolder = { id: folder.length + 1, name: "New Folder" };
     setFolder([...folder, newFolder]);
   };
 
