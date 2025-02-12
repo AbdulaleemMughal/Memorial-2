@@ -6,11 +6,7 @@ import { MemoryInterface } from "./memory.interface";
 
 export const Memory = () => {
 
-    const [memory, setMemory] = useState<FavouriteSwitchInterface | null>(
-        localStorage.getItem("Memory-Switch")
-          ? JSON.parse(localStorage.getItem("Memory-Switch") as string)
-          : null
-      );
+    const [memory, setMemory] = useState<FavouriteSwitchInterface | null>();
         const [memoryData, setMemoryData] = useState<MemoryInterface[]>([]);
 
   const pageColor = useSelector(
@@ -21,6 +17,11 @@ export const Memory = () => {
   );
 
   useEffect(() => {
+    const memorySwitch = localStorage.getItem("Memory-Switch");
+    if(memorySwitch) {
+      setMemory(JSON.parse(memorySwitch));
+    }
+
     const memoryData = localStorage.getItem("Memory-Data");
     if (memoryData) {
       setMemoryData(JSON.parse(memoryData));

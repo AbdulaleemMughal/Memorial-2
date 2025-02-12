@@ -5,11 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../Store/appStore";
 
 export const Favourite = () => {
-  const [favourite, setFavourite] = useState<FavouriteSwitchInterface | null>(
-    localStorage.getItem("Favourite-Switch")
-      ? JSON.parse(localStorage.getItem("Favourite-Switch") as string)
-      : null
-  );
+  const [favourite, setFavourite] = useState<FavouriteSwitchInterface | null>();
   const [favouriteContent, setFavouriteContent] = useState<
       FavouriteInterface[]
     >([]);
@@ -23,6 +19,12 @@ export const Favourite = () => {
   );
 
   useEffect(() => {
+
+    const favouriteSwitch = localStorage.getItem("Favourite-Switch");
+    if(favouriteSwitch) {
+      setFavourite(JSON.parse(favouriteSwitch));
+    }
+
     const favourite_Content = localStorage.getItem("Favourite-Data");
     if (favourite_Content) {
       setFavouriteContent(JSON.parse(favourite_Content));

@@ -46,6 +46,7 @@ export const MyStory = () => {
   const handleChange = (content: string, editor: any) => {
     setMessage(content);
     console.log(message);
+    console.log(editor)
   };
 
   return (

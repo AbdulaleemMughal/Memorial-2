@@ -6,7 +6,6 @@ import {
   FamilySwitchInterface,
   SiblingCardInterface,
 } from "../../Interfaces/familytree.interface";
-import { Card } from "./Card";
 import { GrandFatherCard } from "./GrandFatherCard";
 import { GrandMotherCard } from "./GrandMotherCard";
 import { GrandFatherCard2 } from "./GrandFather2";

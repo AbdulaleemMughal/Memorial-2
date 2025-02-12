@@ -26,7 +26,7 @@ export const GalleryImage = ({ folder, data, onDelete, setImages }: GalleryImage
     (store: RootState) => store.pageColor.isPageColor
   );
 
-  const handleCheckboxChange = (id: number, name: string, checked: boolean) => {
+  const handleCheckboxChange = (id: number, name: string) => {
     setImages((prev) =>
       prev.map((image) =>
         image.id === id
@@ -106,7 +106,6 @@ export const GalleryImage = ({ folder, data, onDelete, setImages }: GalleryImage
                           handleCheckboxChange(
                             data.id,
                             f.name,
-                            e.target.checked
                           );
                         }
                       }}

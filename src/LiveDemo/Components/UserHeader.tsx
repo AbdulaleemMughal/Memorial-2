@@ -9,9 +9,7 @@ import { Header } from "./Header";
 import dayjs from "dayjs";
 
 export const UserHeader = () => {
-  const [image, setImage] = useState<string | null>(
-    localStorage.getItem("User-Image")
-  );
+  const [image, setImage] = useState<string | null>('');
   const [profileData, setProfileData] = useState<UserHeaderInterface | null>();
 
   const bodyColor = useSelector((store: RootState) => store.bgColor.isBgColor);
@@ -23,6 +21,8 @@ export const UserHeader = () => {
   );
 
   useEffect(() => {
+    setImage(localStorage.getItem("User-Image"));
+
     const data = localStorage.getItem("Profile-Data");
     if (data) {
       const parsedData = JSON.parse(data);

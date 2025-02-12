@@ -4,11 +4,7 @@ import { useEffect, useState } from "react";
 import { FavouriteSwitchInterface } from "../../Interfaces/favourite.interface";
 
 export const MyStory = () => {
-  const [myStory, setMyStory] = useState<FavouriteSwitchInterface | null>(
-    localStorage.getItem("EditorSwitch")
-      ? JSON.parse(localStorage.getItem("EditorSwitch") as string)
-      : null
-  );
+  const [myStory, setMyStory] = useState<FavouriteSwitchInterface | null>();
 
   const [message, setMessage] = useState<string>("");
 
@@ -20,6 +16,11 @@ export const MyStory = () => {
   );
 
   useEffect(() => {
+    const storySwitch = localStorage.getItem("EditorSwitch");
+    if(storySwitch) {
+      setMyStory(JSON.parse(storySwitch));
+    }
+
     const storedEditorInput = localStorage.getItem("Editor") || "";
     setMessage(storedEditorInput);
   }, []);

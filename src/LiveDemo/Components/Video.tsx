@@ -8,11 +8,7 @@ import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 
 export const Video = () => {
-  const [video, setVideo] = useState<VideoSwitchInterface | null>(
-    localStorage.getItem("Video-Switch")
-      ? JSON.parse(localStorage.getItem("Video-Switch") as string)
-      : null
-  );
+  const [video, setVideo] = useState<VideoSwitchInterface | null>();
   const [videoContent, setVideoContent] = useState<VideoInterface[]>([]);
 
   const pageColor = useSelector(
@@ -23,6 +19,11 @@ export const Video = () => {
   );
 
   useEffect(() => {
+    const videoSwitch = localStorage.getItem("Video-Switch");
+    if(videoSwitch) {
+      setVideo(JSON.parse(videoSwitch));
+    }
+
     const videoData = localStorage.getItem("Video-Data");
     if (videoData) {
       setVideoContent(JSON.parse(videoData));

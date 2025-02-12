@@ -7,7 +7,7 @@ import {
   MemorySwitchInterface,
   monthNames,
 } from "../../LiveDemo/Components/memory.interface.ts";
-import { memoryStyle, style } from "../../Interfaces/video.interface";
+import { memoryStyle } from "../../Interfaces/video.interface";
 import { RxCross2 } from "react-icons/rx";
 import { FaArrowRight } from "react-icons/fa6";
 import { BiTrashAlt } from "react-icons/bi";

@@ -8,11 +8,7 @@ import {
 } from "../../Interfaces/timeline.interface";
 
 export const Timeline = () => {
-  const [timeline, setTimeline] = useState<TimelineSwitchInterface | null>(
-    localStorage.getItem("Timeline-Switch")
-      ? JSON.parse(localStorage.getItem("Timeline-Switch") as string)
-      : null
-  );
+  const [timeline, setTimeline] = useState<TimelineSwitchInterface | null>();
   const [timelineData, setTimelineData] = useState<TimelineInterface[]>([]);
 
   const pageColor = useSelector(
@@ -23,6 +19,11 @@ export const Timeline = () => {
   );
 
   useEffect(() => {
+    const timelineSwitch = localStorage.getItem("Timeline-Switch");
+    if(timelineSwitch) {
+      setTimeline(JSON.parse(timelineSwitch));
+    }
+
     const timelineData = localStorage.getItem("Timeline-Data");
     if (timelineData) {
       setTimelineData(JSON.parse(timelineData));
