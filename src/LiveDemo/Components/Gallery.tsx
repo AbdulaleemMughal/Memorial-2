@@ -12,11 +12,7 @@ export const Gallery = () => {
   const [folder, setFolder] = useState<FolderInterface[]>([]);
   const [images, setImages] = useState<ImageInterface[]>([]);
   const [allImages, setAllImages] = useState<ImageInterface[]>([]);
-  const [gallery, setGallery] = useState<GalleryInterface>(
-    localStorage.getItem("Profile-Data")
-      ? JSON.parse(localStorage.getItem("Gallery-Switch") as string)
-      : null
-  );
+  const [gallery, setGallery] = useState<GalleryInterface | null>(null)
 
   const pageColor = useSelector(
     (store: RootState) => store.pageColor.isPageColor
@@ -26,6 +22,11 @@ export const Gallery = () => {
   );
 
   useEffect(() => {
+    const gallerySwitch = localStorage.getItem("Gallery-Switch");
+    if(gallerySwitch) {
+      setGallery(JSON.parse(gallerySwitch));
+    }
+
     const folderData = localStorage.getItem("gallery-folder");
     if (folderData) {
       setFolder(JSON.parse(folderData));
@@ -50,7 +51,7 @@ export const Gallery = () => {
 
   return (
     <>
-      {gallery.switch && (
+      {gallery?.switch && (
         <div className="mt-32">
           <div className="flex flex-col gap-2 pb-12">
             <h2

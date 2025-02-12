@@ -101,7 +101,7 @@ export const GalleryImage = ({ folder, data, onDelete, setImages }: GalleryImage
                       id={f.name || ""}
                       name={f.name || ""}
                       checked={data.folderName?.includes(f.name) ? true : false}
-                      onChange={(e) => {
+                      onChange={() => {
                         if (f.name) {
                           handleCheckboxChange(
                             data.id,
