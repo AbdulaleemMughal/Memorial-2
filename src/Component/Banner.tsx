@@ -72,13 +72,23 @@ export const Banner = () => {
             onClick={sideBar}
           />
         </div>
-        <div>
+          {/* <button
+            className="absolute top-[355px] right-[12px] flex items-center gap-2 text-[13px] px-3 py-[5px] cursor-pointer"
+            style={{
+              fontFamily: "Poppins",
+              backgroundColor: pageColor,
+              color: textColor,
+            }}
+          >
+            <IoImageOutline />
+            Change Image
+          </button> */}
           <Button
             text="Change Image"
             icon={<IoImageOutline />}
             buttonStyle={{
               position: "absolute",
-              top: "355px",
+              top: "24px",
               right: "12px",
               fontFamily: "Poppins",
               backgroundColor: pageColor,
@@ -86,7 +96,6 @@ export const Banner = () => {
             }}
             onClick={changeImage}
           />
-        </div>
         <input
           type="file"
           className="opacity-0 absolute w-0 h-0"

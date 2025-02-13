@@ -49,7 +49,7 @@ export const UserHeader = () => {
         expirydate: parsedData.expirydate ? dayjs(parsedData.expirydate) : null,
       });
     }
-    const handleScroll = () => {
+    const handleScroll = () => { 
       const scroll = window.scrollY;
       const header = document.getElementById("header");
       if (header) {
@@ -139,7 +139,7 @@ export const UserHeader = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-col relative top-11 max-md:top-0 max-md:items-center">
+            <div className="flex flex-col relative top-11 max-md:top-0 max-md:items-center h-[200px]">
               <div className="flex">
                 <div>
                   <input
@@ -244,7 +244,7 @@ export const UserHeader = () => {
                         location: e.target.value,
                       });
                     }}
-                    className="date w-full bg-transparent border border-[rgb(222, 226, 230)] w-[470px] py-[6px] px-3 outline-none"
+                    className="date bg-transparent border border-[rgb(222, 226, 230)] w-[470px] py-[6px] px-3 outline-none"
                     style={{
                       fontFamily: "Poppins",
                       color: textColor,
