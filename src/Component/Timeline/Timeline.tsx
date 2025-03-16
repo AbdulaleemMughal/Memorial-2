@@ -1,3 +1,5 @@
+import "../../App.css";
+import React from "react";
 import { Switch } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Store/appStore";
@@ -11,7 +13,6 @@ import { day, month, year } from "./timeline";
 import { IoLocationOutline } from "react-icons/io5";
 import { FiTrash } from "react-icons/fi";
 import { FamilyTree } from "../Family Tree/FamilyTree";
-import "../../App.css";
 
 export const Timeline = () => {
   const [reload, setReload] = useState<boolean>(true);
@@ -63,12 +64,13 @@ export const Timeline = () => {
   };
 
   const handleChange = (
+    id: number,
     field: keyof TimelineInterface,
     value: string | number
   ) => {
     setTimelineData((prev) =>
-      prev.map((timeline, index) =>
-        index === prev.length - 1 ? { ...timeline, [field]: value } : timeline
+      prev.map((timeline) =>
+        timeline.id === id ? { ...timeline, [field]: value } : timeline
       )
     );
   };
@@ -140,7 +142,9 @@ export const Timeline = () => {
                       <select
                         style={{ fontFamily: "Poppins", color: pageColor }}
                         className="cursor-pointer px-[12px] py-[6px] text-[22px] w-[95px] border border-[rgb(222, 226, 230)] outline-none max-md:w-full"
-                        onChange={(e) => handleChange("year", e.target.value)}
+                        onChange={(e) =>
+                          handleChange(t.id, "year", e.target.value)
+                        }
                       >
                         <option defaultValue="Year">{t.year}</option>
                         {year.map((y) => (
@@ -154,7 +158,9 @@ export const Timeline = () => {
                       <select
                         style={{ fontFamily: "Poppins", color: pageColor }}
                         className="cursor-pointer px-[12px] py-[6px] text-[14px] w-[95px] border border-[rgb(222, 226, 230)] outline-none max-md:w-full"
-                        onChange={(e) => handleChange("month", e.target.value)}
+                        onChange={(e) =>
+                          handleChange(t.id, "month", e.target.value)
+                        }
                       >
                         <option defaultValue="Month">{t.month}</option>
                         {month.map((m) => (
@@ -168,7 +174,9 @@ export const Timeline = () => {
                       <select
                         style={{ fontFamily: "Poppins", color: pageColor }}
                         className="cursor-pointer px-[12px] py-[6px] text-[14px] w-[95px] border border-[rgb(222, 226, 230)] outline-none max-md:w-full"
-                        onChange={(e) => handleChange("day", e.target.value)}
+                        onChange={(e) =>
+                          handleChange(t.id, "day", e.target.value)
+                        }
                       >
                         <option defaultValue="Day">{t.day}</option>
                         {day.map((d) => (
@@ -191,7 +199,9 @@ export const Timeline = () => {
                         type="text"
                         placeholder="Title"
                         value={t.title}
-                        onChange={(e) => handleChange("title", e.target.value)}
+                        onChange={(e) =>
+                          handleChange(t.id, "title", e.target.value)
+                        }
                         style={{ color: pageColor, fontFamily: "Poppins" }}
                         className="timeline-inputs outline-none text-[22px] bg-transparent max-md:w-full"
                       />
@@ -205,7 +215,7 @@ export const Timeline = () => {
                         placeholder="Location"
                         value={t.location}
                         onChange={(e) =>
-                          handleChange("location", e.target.value)
+                          handleChange(t.id, "location", e.target.value)
                         }
                         className="timeline-inputs outline-none w-full text-[16px] bg-transparent"
                         style={{ fontFamily: "Poppins" }}

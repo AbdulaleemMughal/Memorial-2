@@ -19,7 +19,7 @@ export const Header = () => {
 
   return (
     <>
-      <div className="py-[13px] px-[178px] header overflow-x-auto md:overflow-visible ">
+      <div className="sticky top-0 py-[13px] px-[178px] header overflow-x-auto md:overflow-visible ">
         <div className="flex justify-center items-center gap-5 whitespace-nowrap">
           <div className="flex items-center py-[10px] px-[10px] gap-[5px] cursor-pointer">
             <div

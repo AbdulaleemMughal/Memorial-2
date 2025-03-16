@@ -48,7 +48,7 @@ export const Memory = () => {
     memoryData.map((m) => (
         <div className="shadow-lg mt-4 pt-[20px] pr-[20px] pl-[20px] pb-[48px]" key={m.id}>
             <div style={{color: textColor, fontFamily: 'Poppins'}}>{m.month} {m.date} {m.year}</div>
-            <p className="mt-[20px] mb-[8px]" style={{fontFamily: 'Spectral'}}>{m.msg}</p>
+            <p className="mt-[20px] mb-[8px]" style={{fontFamily: 'Spectral', color: pageColor}}>{m.msg}</p>
             <div className="flex justify-end mb-3">
                 <h2 className="text-[28px]" style={{fontFamily: 'Spectral', color: textColor}}>{m.name}</h2>
             </div>

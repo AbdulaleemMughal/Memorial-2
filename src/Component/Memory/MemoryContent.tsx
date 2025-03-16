@@ -12,6 +12,7 @@ export const MemoryContent = ({ data, onDelete }: MemoryContentProps) => {
   const textColor = useSelector(
     (store: RootState) => store.textColor.isTextColor
   );
+  const pageColor = useSelector((store: RootState) => store.pageColor.isPageColor)
 
   return (
     <>
@@ -26,7 +27,7 @@ export const MemoryContent = ({ data, onDelete }: MemoryContentProps) => {
             <FaTrash style={{ color: textColor }} className="cursor-pointer" onClick={() => onDelete(data.id)} />
           </div>
         </div>
-        <h2 className="mt-4">{data.msg}</h2>
+        <h2 className="mt-4" style={{color: pageColor}}>{data.msg}</h2>
         <div className="flex justify-end">
           <h1 className="text-3xl" style={{ fontFamily: "Poppins", color: textColor }}>
             {data.name}

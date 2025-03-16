@@ -15,7 +15,7 @@
     font-size: 14px;
   }
   
-  #header.active button {
+  /* #header.active button {
     display: none;
   }
   
@@ -47,7 +47,7 @@
     margin: 15px 0;
     display: flex;
     justify-content: center;
-  }
+  } */
   
   .favourite-input {
     border: 1px solid rgba(166, 166, 166, 0.36);

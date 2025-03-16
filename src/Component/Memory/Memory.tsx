@@ -157,7 +157,7 @@ export const Memory = () => {
         {/* memory content start here */}
 
         {memory.switch && <>
-          <div className="flex justify-between items-center my-10">
+          <div className="flex justify-between items-center my-10 max-sm:text-sm">
             <p
               style={{
                 color: pageColor,

@@ -17,7 +17,7 @@ export const Footer = () => {
       <div className="flex justify-center items-center">
         <div className="flex flex-col">
           <p>
-            Made With{" "}
+            Made By{" "}
             <span
               className="italic underline font-bold"
               style={{ color: pageColor }}

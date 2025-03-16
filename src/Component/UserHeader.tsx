@@ -49,22 +49,22 @@ export const UserHeader = () => {
         expirydate: parsedData.expirydate ? dayjs(parsedData.expirydate) : null,
       });
     }
-    const handleScroll = () => { 
-      const scroll = window.scrollY;
-      const header = document.getElementById("header");
-      if (header) {
-        if (scroll > 200) {
-          header.classList.add("active");
-        } else {
-          header.classList.remove("active");
-        }
-      }
-    };
+    // const handleScroll = () => { 
+    //   const scroll = window.scrollY;
+    //   const header = document.getElementById("header");
+    //   if (header) {
+    //     if (scroll > 200) {
+    //       header.classList.add("active");
+    //     } else {
+    //       header.classList.remove("active");
+    //     }
+    //   }
+    // };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    // window.addEventListener("scroll", handleScroll);
+    // return () => {
+    //   window.removeEventListener("scroll", handleScroll);
+    // };
   }, []);
 
   useEffect(() => {
@@ -107,7 +107,7 @@ export const UserHeader = () => {
     <>
       <div
         id="header"
-        className="sticky top-0 z-30"
+        className="z-30"
         style={{ backgroundColor: bodyColor }}
       >
         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -244,7 +244,7 @@ export const UserHeader = () => {
                         location: e.target.value,
                       });
                     }}
-                    className="date bg-transparent border border-[rgb(222, 226, 230)] w-[470px] py-[6px] px-3 outline-none"
+                    className="date bg-transparent border border-[rgb(222, 226, 230)] w-[470px] py-[6px] px-3 outline-none max-md:w-[200px]"
                     style={{
                       fontFamily: "Poppins",
                       color: textColor,

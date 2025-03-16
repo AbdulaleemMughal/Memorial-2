@@ -8,6 +8,7 @@ import { Memory } from "./Memory"
 import { MyStory } from "./MyStory";
 import { Timeline } from "./Timeline";
 import { Video } from "./Video";
+import { Footer } from "./Footer"
 
 export const LivePage = () => {
   const bgColor = useSelector((store: RootState) => store.bgColor.isBgColor);
@@ -24,6 +25,7 @@ export const LivePage = () => {
           <MyStory />
           <Timeline />
           <Video />
+          <Footer />
         </div>
       </div>
     </>

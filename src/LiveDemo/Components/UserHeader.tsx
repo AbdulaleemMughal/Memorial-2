@@ -33,29 +33,29 @@ export const UserHeader = () => {
       });
     }
 
-    const handleScroll = () => {
-      const scroll = window.scrollY;
-      const header = document.getElementById("header");
-      if (header) {
-        if (scroll > 300) {
-          header.classList.add("active");
-        } else {
-          header.classList.remove("active");
-        }
-      }
-    };
+    // const handleScroll = () => {
+    //   const scroll = window.scrollY;
+    //   const header = document.getElementById("header");
+    //   if (header) {
+    //     if (scroll > 300) {
+    //       header.classList.add("active");
+    //     } else {
+    //       header.classList.remove("active");
+    //     }
+    //   }
+    // };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    // window.addEventListener("scroll", handleScroll);
+    // return () => {
+    //   window.removeEventListener("scroll", handleScroll);
+    // };
   }, []);
 
   return (
     <>
       <div
         id="header"
-        className="sticky top-0 z-30"
+        className="z-30"
         style={{ backgroundColor: bodyColor }}
       >
         <div className="flex justify-center md:gap-5 items-center relative bottom-16 user-header max-md:flex max-md:justify-center max-sm:flex-col max-sm:hide-header">
