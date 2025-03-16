@@ -1,5 +1,4 @@
 import "../../App.css";
-import React from "react";
 import { Switch } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Store/appStore";
